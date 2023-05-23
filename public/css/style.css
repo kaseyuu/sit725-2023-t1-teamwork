@@ -255,7 +255,7 @@ body {
 .container.active .form-item {
   height: 100%;
 }
-.container.active .container-forms .container-info .info-item #forgot-password {
+.container.active .container-forms .container-info .info-item {
   height: 0%;
   opacity: 0;
 }
