@@ -1,36 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Search result page</title>
-    <meta name="description" content="Kasey's part Search result page">
-    <meta name="author" content="SitePoint">
+    <meta name="description" content="Kasey's part Search result page" />
+    <meta name="author" content="SitePoint" />
 
-    <meta property="og:title" content="Kasey's part Search result page">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="Kasey's part Search result page">
+    <meta property="og:title" content="Kasey's part Search result page" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Kasey's part Search result page" />
 
     <!-- Include Bootstramp's CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-
+    <script type="module">
+        import Autocomplete from "https://cdn.jsdelivr.net/gh/lekoala/bootstrap5-autocomplete@master/autocomplete.js";
+        var src = [];
+        for (let i = 0; i < 50; i++) {
+            src.push({
+                title: "Option " + i,
+                id: "opt" + i,
+                data: {
+                    key: i,
+                },
+            });
+        }
+        Autocomplete.init("input.autocomplete", {
+            items: src,
+            valueField: "id",
+            labelField: "title",
+            highlightTyped: true,
+            onSelectItem: console.log,
+        });
+    </script>
 </head>
-
-<main class="main-body"></main>
 
 <body>
     <nav>
         <!-- use Mansheen's navbar to be consistent with homepage -->
     </nav>
     <div>
-        <form class="d-flex p-5">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-dark btn-lg" type="button">Search</button>
+        <form class="d-flex px-5 pt-5 mb-5">
+            <input class="form-control me-2 autocomplete" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-dark btn-lg" type="button" id="searchButton">
+                Search
+            </button>
         </form>
     </div>
     <div class="container-fluid ps-5">
@@ -87,12 +106,12 @@
                             <div class="form-group">
                                 <label for="minPrice">Minimum Price</label>
                                 <input type="number" class="form-control" id="minPrice"
-                                    placeholder="Enter minimum price">
+                                    placeholder="Enter minimum price" />
                             </div>
                             <div class="form-group pb-2">
                                 <label for="maxPrice">Maximum Price</label>
                                 <input type="number" class="form-control" id="maxPrice"
-                                    placeholder="Enter maximum price">
+                                    placeholder="Enter maximum price" />
                             </div>
                             <button type="submit" class="btn btn-dark">Apply</button>
                         </form>
@@ -139,9 +158,10 @@
                 <div class="row row-cols-4 g-4">
                     <div class="col">
                         <div class="card">
-                            <img src="./images/dress1.png" class="card-img-top" alt="...">
+                            <img src="./images/dress1.png" class="card-img-top" alt="..." />
                             <div class="card-body">
-                                <h6 class="card-title pb-2">mini dress in monochrome print
+                                <h6 class="card-title pb-2">
+                                    mini dress in monochrome print
                                 </h6>
                                 <h5 class="card-title">$60</h5>
                             </div>
@@ -149,9 +169,10 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <img src="./images/dress2.png" class="card-img-top" alt="...">
+                            <img src="./images/dress2.png" class="card-img-top" alt="..." />
                             <div class="card-body">
-                                <h6 class="card-title pb-2">Beautiful Zara Girl white dress size 9 / 10
+                                <h6 class="card-title pb-2">
+                                    Beautiful Zara Girl white dress size 9 / 10
                                 </h6>
                                 <h5 class="card-title">$15</h5>
                             </div>
@@ -159,20 +180,21 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <img src="./images/dress3.png" class="card-img-top" alt="...">
+                            <img src="./images/dress3.png" class="card-img-top" alt="..." />
                             <div class="card-body">
-                                <h6 class="card-title pb-2">Black mini dress with floral design
+                                <h6 class="card-title pb-2">
+                                    Black mini dress with floral design
                                 </h6>
                                 <h5 class="card-title">$30</h5>
-
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card">
-                            <img src="./images/shoe1.png" class="card-img-top" alt="...">
+                            <img src="./images/shoe1.png" class="card-img-top" alt="..." />
                             <div class="card-body">
-                                <h6 class="card-title pb-2">Nearly New Wayne Cooper High Heels
+                                <h6 class="card-title pb-2">
+                                    Nearly New Wayne Cooper High Heels
                                 </h6>
                                 <h5 class="card-title">$29</h5>
                             </div>
@@ -182,8 +204,6 @@
             </div>
         </div>
     </div>
-    </main>
-
 
     <!-- Include Bootstramp's JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -192,7 +212,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>
