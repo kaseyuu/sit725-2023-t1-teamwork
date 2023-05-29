@@ -11,6 +11,16 @@ app.set("view engine", "handlebars");
 app.set("views", "./views");
 
 app.get("/clothes", (req, res) => {
+    const {
+        category,
+        subCategory,
+        condition,
+        minPrice,
+        maxPrice,
+        size,
+        location,
+    } = req.query;
+
     // TODO: Get items from DB dynamitaclly
     const items = [
         {
