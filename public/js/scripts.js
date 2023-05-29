@@ -9,3 +9,10 @@ searchButton.addEventListener('click', function (event) {
 function performSearch(query) {
     console.log('search query:', query);
 }
+
+let socket = io();
+socket.on('showBanner', (msg) => {
+    console.log('Received showBanner');
+    // TODO: apply display: block to banner element
+    document.getElementById('prompt').style.display = 'block';
+})
