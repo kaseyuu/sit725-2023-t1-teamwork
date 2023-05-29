@@ -5,13 +5,13 @@
   <title> Log in / Sign up | ReWearit </title>
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../public/css/login-style.css">
 
 </head>
 <body>
 
 <div class="logo"> 
-  <a class="brand-logo"><img class="user-image-size" src="./images/rewearit_logo_transparent.png" /></a>
+  <a class="brand-logo"><img class="user-image-size" src="images/rewearit_logo.png" /></a>
 </div>
 
 <div class="container">
@@ -51,10 +51,11 @@
             <input name="Password" placeholder="Password" type="Password" />
             <div id="forgot-password">
             <a href="#" >Forgot Password?</a>
-            </div>
-            <div class="btn">
-              Log in
-            </div>
+            </div><br>
+			<button type="submit">Log in</button>
+            <!-- <div class="btn">
+				<button type="submit">Log in</button>
+            </div> -->
           </form>
         </div>
       </div>
@@ -65,9 +66,10 @@
             <input name="fullName" placeholder="Full Name" type="text" />
             <input name="Username" placeholder="Username" type="text" />
             <input name="Password" placeholder="Password" type="Password" />
-            <div class="btn">
-              Sign up
-            </div>
+			<button type="submit">Sign up</button>
+            <!-- <div class="btn">
+				<button type="submit">Sign up</button>
+            </div> -->
           </form>
         </div>
       </div>
@@ -75,7 +77,7 @@
   </div>
 </div>
 <!-- partial -->
-  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="./js/script.js"></script>
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="../public/js/login-script.js"></script>
 
 </body>
 </html>

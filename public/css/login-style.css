@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* LOGIN PAGE CSS */
+/* @import url(https://fonts.googleapis.com/css?family=Montserrat:500&display=swap); */
 body {
   position: absolute;
   left: 0;
@@ -186,6 +186,17 @@ body {
   box-shadow: 0 0 10px 1px #000000;
   margin-top: 30px;
 }
+
+.table-cell button {
+    text-decoration: none;
+    background: transparent;
+    color: #000;
+    font-family:"Montserrat";
+    font-weight: bold;
+    padding: 10px 15px;
+    margin-left: 35%;
+}
+
 .container .form-item {
   position: absolute;
   left: 0;
@@ -231,12 +242,12 @@ body {
   height: 140px;
   margin-top: -70px;
 }
-.container.active .container-form {
+ .container.active .container-form {
   left: 30px;
   width: 200px;
   height: 200px;
-}
-.container.active .container-form:before {
+} 
+ .container.active .container-form:before {
   content: "✔";
   position: absolute;
   left: 51px;
@@ -244,8 +255,8 @@ body {
   color: #000000;
   font-size: 130px;
   opacity: 1;
-}
-.container.active input,  .container.active .btn, .container.active .info-item {
+} 
+.container.active input, .container.active .btn, .container.active .info-item {
   display: none;
   opacity: 0;
   padding: 0px;
