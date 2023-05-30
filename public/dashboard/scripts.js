@@ -46,7 +46,7 @@ document
   .getElementById("button")
   .addEventListener("click", redirectSearchPage, true);
 function redirectSearchPage() {
-  location.href = "http://127.0.0.1:5500/public/clothes.html";
+  location.href = "http://127.0.0.1:3000/clothes.html";
 }
 
 // logout-dropdown menu
