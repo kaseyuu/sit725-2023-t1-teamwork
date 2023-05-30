@@ -12,7 +12,5 @@ function performSearch(query) {
 
 let socket = io();
 socket.on('showBanner', (msg) => {
-    console.log('Received showBanner');
-    // TODO: apply display: block to banner element
     document.getElementById('prompt').style.display = 'block';
 })
