@@ -39,7 +39,7 @@ router.get("/clothes", async (req, res) => {
             price: 444444440,
         },
     ];
-    // Get items from DB dynamically
+    // Get items from DB dynamically and apply case insensitive search
     const query = {
         // Exact Search with filters
         category: caseInsensitiveSearch(category),
@@ -57,6 +57,10 @@ router.get("/clothes", async (req, res) => {
     const filteredQuery = Object.fromEntries(
         Object.entries(query).filter(([_, value]) => value !== undefined)
     );
+
+    if (query.name === undefined) {
+        query.name === "";
+    }
 
     const allClothes = await controller.searchClothes(query);
     res.render("clothes", { items: allClothes });
