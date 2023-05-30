@@ -1,3 +1,5 @@
+
+
 // Refreshing the page for home and logo
 function refreshPage() {
   window.location.reload();
@@ -161,12 +163,12 @@ var scrollHandler = function () {
   // our current scroll position
   // the top of our page
   var min = window.pageYOffset;
-  console.log("min" + min);
+ 
   // the bottom of our page
   var max = min + window.innerHeight;
     if (videoPos.top >= min && videoPos.top < max) {
       // play the video
-      console.log("play");
+    
       videoPos.el.play();
     }
     // the bottom of the video is above the top of our page
@@ -174,7 +176,7 @@ var scrollHandler = function () {
     // ( === not visible anyhow )
     if (videoPos.bottom <= min || videoPos.top >= max) {
       // stop the video
-      console.log("pause")
+      
       videoPos.el.pause();
     }
   };
@@ -188,79 +190,49 @@ window.addEventListener("resize", checkPos);
 
 
 var array = [
-  {
-    image:
-      "https://storage.cloud.google.com/staging.wallpaper-arena.appspot.com/RewearIT/photo_1.jpg",
-  },
-  {
-    image:
-      "https://storage.cloud.google.com/staging.wallpaper-arena.appspot.com/RewearIT/photo_2.jpg",
-  },
-  {
-    image:
-      "https://storage.cloud.google.com/staging.wallpaper-arena.appspot.com/RewearIT/photo_4.jpg",
-  },
-  {
-    image:
-      "https://storage.cloud.google.com/staging.wallpaper-arena.appspot.com/RewearIT/photo_5.jpg",
-  },
-  {
-    image:
-      "https://storage.cloud.google.com/staging.wallpaper-arena.appspot.com/RewearIT/photo_7.jpg",
-  },
-  {
-    image:
-      "https://storage.cloud.google.com/staging.wallpaper-arena.appspot.com/RewearIT/photo_6.jpg",
-  },
-  {
-    image:
-      "https://storage.cloud.google.com/staging.wallpaper-arena.appspot.com/RewearIT/photo_8.jpg",
-  },
-  {
-    image:
-      "https://storage.cloud.google.com/staging.wallpaper-arena.appspot.com/RewearIT/photo_3.jpg",
-  },
+    "https://i.ibb.co/8jdTpj1/photo-1.jpg",
+    "https://i.ibb.co/B4LnXXX/photo-2.jpg",
+    "https://i.ibb.co/pnLX8tj/photo-3.jpg",
+    "https://i.ibb.co/wMKcdpM/photo-4.jpg",
+    "https://i.ibb.co/sgLG5Cm/photo-5.jpg",
+    "https://i.ibb.co/GtMyCPH/photo-6.jpg",
+    "https://i.ibb.co/K2Nvj7J/photo-7.jpg",
+    "https://i.ibb.co/0V4RkmH/photo-8.jpg"
+
 ];
 
-// window.onload = function () {
-//   arr(array);
-// };
+window.onload = function () {
+  getPhotoWall();
+};
 
-// function arr(array) {
-//   console.log(array)
+function arr(array) {
+  console.log(array);
 
-//   for (var i = 0; i < array.length; i++) {
-//     var photo_wall_container = document.createElement("div");
-//     photo_wall_container.innerHTML = `<div class="photo_${i}">
-//         <img src=${array[i].image} id="image${i}>
-//       </div>`
-//     document.getElementById("photo_wall_div").appendChild(photo_wall_container);
-//     // photo_wall_container.style.backgroundColor = "red";
-//     // document.getElementById("image" + i).style.height = "7vh";
-//     // document.getElementById("image" + i).style.maxWidth = "7vh";
-//     // document.getElementById("image" + i).style.borderRadius = "5vh";
-//     // document.getElementById("last_msg" + i).style.marginTop = "0.8vh";
-//   }
-// }
+  for (var i = 0; i < array.length; i++) {
+    var photo_wall_container = document.createElement("div");
+    photo_wall_container.innerHTML = `<div class="photo_${i + 1}">
+        <img src="${array[i]}" id="image${i + 1}">
+      </div>`;
+    document.getElementById("photo_wall_div").appendChild(photo_wall_container);
+    // photo_wall_container.style.backgroundColor = "red";
+    // document.getElementById("image" + i).style.height = "7vh";
+    // document.getElementById("image" + i).style.maxWidth = "7vh";
+    // document.getElementById("image" + i).style.borderRadius = "5vh";
+    // document.getElementById("last_msg" + i).style.marginTop = "0.8vh";
+  }
+}
 
-// btn1.addEventListener("click", function () {
-//   if (!validations()) return;
-//   var bodydata = {
-//     mobile_number: number.value,
-//     password: password.value,
-//     name: username.value,
-//   };
-//   axios({
-//     method: "get",
-//     url: "http://127.0.0.1:8000/accounts/register",
-//     data: bodydata,
-//     // headers: { "Content-Type": "application/json","Authorization":"Token "+ userToken },
-//   })
-//     .then(function (response) {
-//       console.log(response.data);
-//     })
-//     .catch(function (error) {
-//       console.log(error.response.data);
-//       alert(error.response.data.mobile_number);
-//     });
-// });
+function getPhotoWall(){
+  axios({
+    method: "get",
+    url: "http://127.0.0.1:3000/api/photo-wall"
+  })
+    .then(function (response) {
+      arr(response.data);
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.response.data);
+      
+    });
+}
