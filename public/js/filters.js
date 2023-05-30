@@ -19,6 +19,10 @@ searchButton.addEventListener('click', function (event) {
     replaceURLParams(selectedFilters);
 });
 
+// Keep typed keywords after search result page is shown
+const searchInput = selectedFilters["searchText"]
+document.getElementById('searchInput').value = searchInput;
+
 // Attach click event to each <a> tag
 filterLinks.forEach((link) => {
     // Get the filter category from the parent element's ID
