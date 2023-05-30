@@ -8,6 +8,17 @@ const selectedFilters = Object.fromEntries(
     new URLSearchParams(window.location.search)
 );
 
+const searchButton = document.getElementById('searchButton');
+searchButton.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const searchInput = document.getElementById('searchInput').value;
+    // Update the selectedFilters object
+    selectedFilters["searchText"] = searchInput;
+    // Log the selected filters
+    replaceURLParams(selectedFilters);
+});
+
 // Attach click event to each <a> tag
 filterLinks.forEach((link) => {
     // Get the filter category from the parent element's ID
@@ -18,17 +29,14 @@ filterLinks.forEach((link) => {
     const value = link.textContent.trim();
 
     link.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent the default link behavior
+        event.preventDefault();
 
-        // Update the selectedFilters object
         selectedFilters[category] = value;
-
-        // Log the selected filters
         replaceURLParams(selectedFilters);
     });
 
     const selectedValue = selectedFilters[category];
-
+    // apply grey color for selected filters
     if (value === selectedValue) {
         link.style.backgroundColor = "#C8C8C8";
     }
