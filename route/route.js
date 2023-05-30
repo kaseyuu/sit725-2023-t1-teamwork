@@ -62,4 +62,16 @@ router.get("/clothes", async (req, res) => {
     res.render("clothes", { items: allClothes });
 });
 
+// Define the endpoint search-prompts so it can query the database
+router.get("/search-prompts", async (req, res) => {
+    const { query } = req.query;
+    console.log("🚀 ~ file: route.js:54 ~ router.get ~ query:", query);
+    // TODO: Get results from DB dynamically
+    var src = [];
+    for (let i = 0; i < 50; i++) {
+        src.push({ title: "Option " + i, id: "opt" + i, data: { key: i } });
+    }
+    res.send(src);
+});
+
 module.exports = router;
