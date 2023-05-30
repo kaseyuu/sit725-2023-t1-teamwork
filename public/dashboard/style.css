@@ -1,7 +1,7 @@
+/* Mansheen's code */
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Inika&family=Inter:wght@200;400;500;800&display=swap");
 
 /* Resets */
-
 * {
   margin: 0;
   padding: 0;
@@ -54,7 +54,6 @@ a {
 }
 
 /* utility class*/
-
 .flex {
   display: flex;
   align-items: center;
@@ -280,7 +279,7 @@ cursor: pointer;
   margin-top: 3rem;
 }
 
-/* ABOUT US */
+/* ABOUT US  PAGE*/
 
 .about_us_page {
   height: 35rem;
@@ -411,7 +410,6 @@ cursor: pointer;
   background-color: #05152c;
   height: 35rem;
   width: 100%;
-  /* justify-content: space-between; */
 }
 
 .cta_page h2 {
@@ -463,10 +461,11 @@ footer {
   margin-top: 5rem;
 }
 
-.services a {
+.services h4 {
   display: block;
   font-weight: 300;
   padding-top: 1.5rem;
+  cursor: pointer;
 }
 
 .contact_us_footer {
