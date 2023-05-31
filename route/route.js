@@ -49,12 +49,29 @@ router.get("/clothes", async (req, res) => {
 router.get("/search-prompts", async (req, res) => {
   const { query } = req.query;
 
-  // TODO: Get results from DB dynamically
-  var src = [];
-  for (let i = 0; i < 50; i++) {
-      src.push({ title: "Option " + i, id: "opt" + i, data: { key: i } });
-  }
-  res.send(src);
+    //Get results from DB dynamically
+    const searchPrompts = await controller.searchSearchPrompts(query);
+    const normalisedPrompts = searchPrompts.map((s, i) => {
+        return {
+            title: s.value,
+            id: i,
+            data: s,
+        };
+    });
+    res.send(normalisedPrompts);
+});
+
+router.post("/search-prompts/add", async (req, res) => {
+    const { searchPrompts } = req.body;
+    console.log(req.body)
+    const count = await controller.addSearchPrompts(searchPrompts);
+    res.send(count.toString());
+});
+
+router.post("/search-prompts/delete", async (req, res) => {
+    const { searchPrompts } = req.body;
+    const count = await controller.deleteSearchPrompts(searchPrompts);
+    res.send(count.toString());
 });
 
 // End point to get photo wall pages

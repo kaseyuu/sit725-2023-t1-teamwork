@@ -10,9 +10,30 @@ const searchClothes = async (searchQuery) => {
     return allClothes;
 };
 
+const addSearchPrompts = async (searchPrompts) => {
+    return await model.addSearchPrompts(searchPrompts);
+};
+
+const deleteSearchPrompts = async (searchPrompts) => {
+    return await model.deleteSearchPrompts(searchPrompts);
+};
+
+const searchSearchPrompts = async (searchString) => {
+    return await model.searchSearchPrompts(searchString);
+};
+
 const getAllPhotoWallImages = async (req, res) => {
     const allImages = await model.getAllPhotoWallImages();
     return allImages;
+};
+
+module.exports = {
+    getAllClothes,
+    searchClothes,
+    addSearchPrompts,
+    deleteSearchPrompts,
+    searchSearchPrompts,
+    getAllPhotoWallImages,
 };
 
 module.exports = { getAllClothes, searchClothes, getAllPhotoWallImages};
