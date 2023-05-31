@@ -11,17 +11,4 @@ const client = new MongoClient(uri, {
     },
 });
 
-//USER ACCOUNTS DATABASE
-
-const mongoose = require("mongoose");
-
-mongoose.connect("mongodb+srv://admin:admin@userdb.a9xelkj.mongodb.net/?retryWrites=true&w=majority", {
-
-}).then(() => {
-    console.log("DB Connection Success");
-}).catch((e) => {
-    console.log("DB Connection Failed");
-})
-    
 module.exports = client;
-

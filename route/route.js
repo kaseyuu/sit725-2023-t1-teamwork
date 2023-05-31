@@ -80,4 +80,24 @@ router.get("/api/photo-wall", async (req, res) => {
   res.json(allPhotos.map((item) => item.image));
 });
 
+//create a new user to DB
+router.post("/api/register", async (req, res) => {
+    const response = await controller.createUser(req, res);
+    if (response.error) {
+        res.status(400).json(response); // Return a 400 status code with the error message
+    }else {
+        res.json(response)
+    }
+})
+
+// Login endpoint
+router.post("/api/login", async (req, res) => {
+    const response = await controller.loginUser(req, res);
+    if (response.error) {
+        res.status(400).json(response); // Return a 400 status code with the error message
+    }else {
+        res.json(response)
+    }
+})
+
 module.exports = router;

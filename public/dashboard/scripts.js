@@ -1,4 +1,11 @@
 // Mansheen's code
+const isAuthenticated = () => {
+  let user = localStorage.getItem("user");
+  if (!user) {
+    window.location.href = "http://127.0.0.1:3000/login.html";
+  }
+}
+
 // Refreshing the page for home and logo
 function refreshPage() {
   window.location.reload();
@@ -46,6 +53,15 @@ document
   .addEventListener("click", redirectSearchPage, true);
 function redirectSearchPage() {
   location.href = "http://127.0.0.1:3000/clothes";
+}
+
+document
+  .getElementById("logout_btn")
+  .addEventListener("click", logoutUser, true);
+
+function logoutUser() {
+  localStorage.removeItem("user");
+  window.location.href = "http://127.0.0.1:3000/login.html";
 }
 
 // redirecting to mens section
@@ -131,17 +147,17 @@ document
   .getElementById("about_us_services")
   .addEventListener("click", aboutUsservices, true);
 
-  document
+document
   .getElementById("Contact_us_services")
   .addEventListener("click", contactUsservices, true);
 
-  function homeservices() {
-    var element = document.getElementById("rewearit_logo");
-    window.scrollTo({
-      top: element.offsetTop,
-      behavior: "smooth",
-    });
-  }
+function homeservices() {
+  var element = document.getElementById("rewearit_logo");
+  window.scrollTo({
+    top: element.offsetTop,
+    behavior: "smooth",
+  });
+}
 
 function aboutUsservices() {
   var element = document.getElementById("about_us_page");
@@ -191,7 +207,7 @@ var scrollHandler = function () {
   var min = window.pageYOffset;
   var max = min + window.innerHeight;
   if (videoPos.top >= min && videoPos.top < max) {
-  videoPos.el.play();
+    videoPos.el.play();
   }
   if (videoPos.bottom <= min || videoPos.top >= max) {
     videoPos.el.pause();
@@ -202,6 +218,7 @@ window.addEventListener("resize", checkPos);
 
 // Photowall implemented dynamically- (db & api)
 window.onload = function () {
+  isAuthenticated();
   getPhotoWall();
 };
 
