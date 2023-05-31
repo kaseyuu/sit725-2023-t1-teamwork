@@ -34,6 +34,7 @@ body {
 
 .brand-logo img {
   height: 220px;
+  top:-5rem;
   position:absolute;
   width: auto;
 }
