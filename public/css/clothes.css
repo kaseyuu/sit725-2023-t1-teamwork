@@ -1,6 +1,15 @@
 #ac-menu-1 {
-    top: 220px;
-    min-width: 108rem;
+    max-width: 100% !important;
+    width: 100%;
+}
+
+.search-input-container {
+    flex-grow: 1;
+    position: relative;
+}
+
+.search-input-container input {
+    height: 100%;
 }
 
 .filter {
