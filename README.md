@@ -31,4 +31,5 @@ To run this application locally, follow these steps:
 - Install dependencies: npm install
 - Start the development server: npm start
 - Open the application in your web browser at http://127.0.0.1:3000/
+
 Note: Make sure you have Node.js and npm (Node Package Manager) installed on your system.
