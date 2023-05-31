@@ -10,6 +10,8 @@ let io = require("socket.io")(http);
 var port = process.env.port || 3000;
 
 app.use(express.static(__dirname + "/public"));
+// Connect tp uploaded clothes' photos
+app.use('/uploads', express.static(__dirname + '/Item upload/uploads'));
 
 // Add handlebars engine to dynamically inject clothes
 app.engine("handlebars", engine());
@@ -33,6 +35,71 @@ io.on("connection", (socket) => {
 
 app.use(express.urlencoded({ extended: false }));
 
+const static_path = path.join(__dirname + "/public")
+
+app.get("/", (req, res) => {
+  res.render("login")
+});
+
+app.get("/register", (req, res) => {
+  res.render("register")
+})
+
+app.get("/login", (req, res) => {
+  res.render("index");
+})
+
+
+
+//create a new user to DB
+app.post("/register", async (req, res) => {
+  try {
+    const Password = req.body.Password;
+    const confPassword = req.body.confPassword;
+
+    if (Password === confPassword) {
+
+      const newUser = new Register({
+        email: req.body.email,
+        fullName: req.body.fullName,
+        Username: req.body.Username,
+        Password: Password,
+        confPassword: confPassword
+      })
+
+      const registered = await newUser.save();
+      res.status(200).sendFile(__dirname + "/public/login.html");
+
+    } else {
+      res.send("Password are not matching")
+      // res.send({ statusCode: 200, data: result, message: 'Passwords are not matching' })
+    }
+
+  } catch (error) {
+    res.status(400).send(error);
+  }
+})
+
+//login check
+app.post("/login", async (req, res) => {
+  try {
+
+    const Username = req.body.Username;
+    const Password = req.body.Password;
+
+    const username = await Register.findOne({ Username: Username });
+
+    if (username.Password === Password) {
+      res.status(200).sendFile(__dirname + "/public/index.html");
+    } else {
+      res.send("Username or Password is incorrect");
+      // res.json({ statusCode: 200, data: result, message: 'Username or Password is incorrect' });
+    }
+
+  } catch (error) {
+    res.status(400).send(error);
+  }
+})
 app.use("/", router);
 http.listen(port, () => {
   console.log("App listening to: " + port);
