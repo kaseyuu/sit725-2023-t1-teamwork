@@ -1,3 +1,6 @@
+<script src="/js/clothes.js" type="module"></script>
+<link href="/css/clothes.css" rel="stylesheet" />
+
 <nav>
     <!-- use Mansheen's navbar to be consistent with homepage -->
 </nav>
@@ -26,22 +29,11 @@
         </div>
     </div>
 </div>
-{{!-- <div class="position-fixed bottom-0 end-0 p-3 bg-lightgray rounded" id="prompt" style="width: 300px;"
-    display="none">
-    <div class="bg-lightgray text-dark p-2 rounded">
-        Hey, it seems that you've stayed on this page for a long time. If you can't find interested items, come back and
-        check regularly because we keep uploading new clothes for trade! &#128512;
-    </div>
-</div> --}}
+
+{{!-- Created a banner on the bottom--}}
 <div class="alert alert-info alert-dismissible fade show fixed-bottom end-0 p-3" id="prompt" role="alert">
     <strong>Hello!</strong> It seems that you've stayed on this page for a long time. If you can't find interested
     items, come back and
     check regularly because we keep uploading new clothes for trade! &#128512;
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
-
-<style>
-    #prompt {
-        display: none;
-    }
-</style>
