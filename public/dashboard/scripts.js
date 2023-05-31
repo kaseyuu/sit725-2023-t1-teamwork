@@ -77,7 +77,7 @@ document
   .addEventListener("click", redirectFacebookPage, true);
 function redirectFacebookPage() {
   window.open(
-    "https://www.facebook.com/people/Rewearit/100093116108440/",
+    "https://www.facebook.com/rewearit.ath/",
     "_blank"
   );
 }
@@ -86,7 +86,7 @@ document
   .getElementById("insta_handle")
   .addEventListener("click", redirectInstagramPage, true);
 function redirectInstagramPage() {
-  window.open("https://www.instagram.com/rewearit_official/", "_blank");
+  window.open("https://www.instagram.com/rewearit.ath/?hl=en", "_blank");
 }
 
 //Youtube

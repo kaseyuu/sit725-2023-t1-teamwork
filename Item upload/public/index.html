@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Item Upload</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        margin-top: 20px;
+      }
+
+      form {
+        display: inline-block;
+        text-align: left;
+        margin-top: 20px;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      select,
+      input[type="number"],
+      input[type="file"],
+      button {
+        margin-top: 5px;
+        padding: 5px;
+        width: 200px;
+        border-radius: 3px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Item Upload</h1>
+    <form action="/items" method="POST" enctype="multipart/form-data">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" step="0.01" required>
+      </div>     
+      <div>
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+          <option value="Men">Men</option>
+          <option value="Women">Women</option>
+          <option value="Kids">Kids</option>
+        </select>
+      </div>
+      <div>
+        <label for="subcategory">Subcategory:</label>
+        <select name="subcategory" id="subcategory">
+          <option value="Top">Top</option>
+          <option value="Bottom">Bottom</option>
+          <option value="Shoes">Shoes</option>
+          <option value="Accessories">Accessories</option>
+        </select>
+      </div>
+      <div>
+        <label for="condition">Condition:</label>
+        <select name="condition" id="condition">
+          <option value="Brand New">Brand New</option>
+          <option value="Good">Good</option>
+          <option value="Fair">Fair</option>
+        </select>
+      </div>
+      <div>
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" step="0.01" required>
+      </div>
+      <div>
+        <label for="size">Size:</label>
+        <select name="size" id="size">
+          <option value="2XS">2XS</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="2XL">2XL</option>
+        </select>
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <select name="location" id="location">
+          <option value="The CBD and inner-east">The CBD and inner-east</option>
+          <option value="Eastern Suburbs">Eastern Suburbs</option>
+          <option value="Northern Beaches">Northern Beaches</option>
+          <option value="The North Shore">The North Shore</option>
+          <option value="The Inner-West">The Inner-West</option>
+          <option value="Paramatta and Western Sydney">Paramatta and Western Sydney</option>
+          <option value="The South">The South</option>
+          <option value="The South West">The South West</option>
+          <option value="Central Coast">Central Coast</option>
+          <option value="The Blue Mountains">The Blue Mountains</option>
+        </select>
+      </div>
+      <div>
+        <label for="image">Image:</label>
+        <input type="file" name="image" id="image" accept="image/*" required>
+      </div>
+      <button type="submit">Upload</button>
+    </form>
+    <script>
+      // Handle form submission success
+      const urlParams = new URLSearchParams(window.location.search);
+      const success = urlParams.get('success');
+      if (success) {
+        alert('Item uploaded successfully!');
+      }
+    </script>
+  </body>
+</html>
