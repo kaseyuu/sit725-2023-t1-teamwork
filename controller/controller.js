@@ -27,6 +27,26 @@ const getAllPhotoWallImages = async (req, res) => {
     return allImages;
 };
 
+const createUser = async (req, res) => {
+    const newUser = {
+        email: req.body.email,
+        fullName: req.body.fullName,
+        username: req.body.username,
+        password: req.body.password,
+    }
+    const resp = await model.createUser(newUser);
+    return resp;
+}
+
+const loginUser = async (req, res) => {
+    const user = {
+        username: req.body.username,
+        password: req.body.password,
+    }
+    const resp = await model.loginUser(user);
+    return resp;
+}
+
 module.exports = {
     getAllClothes,
     searchClothes,
@@ -34,5 +54,7 @@ module.exports = {
     deleteSearchPrompts,
     searchSearchPrompts,
     getAllPhotoWallImages,
+    createUser,
+    loginUser,
 };
 
