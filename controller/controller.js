@@ -22,10 +22,18 @@ const searchSearchPrompts = async (searchString) => {
     return await model.searchSearchPrompts(searchString);
 };
 
+const getAllPhotoWallImages = async (req, res) => {
+    const allImages = await model.getAllPhotoWallImages();
+    return allImages;
+};
+
 module.exports = {
     getAllClothes,
     searchClothes,
     addSearchPrompts,
     deleteSearchPrompts,
     searchSearchPrompts,
+    getAllPhotoWallImages,
 };
+
+module.exports = { getAllClothes, searchClothes, getAllPhotoWallImages};

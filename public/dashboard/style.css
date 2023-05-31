@@ -1,7 +1,7 @@
+/* Mansheen's code */
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Inika&family=Inter:wght@200;400;500;800&display=swap");
 
 /* Resets */
-
 * {
   margin: 0;
   padding: 0;
@@ -54,7 +54,6 @@ a {
 }
 
 /* utility class*/
-
 .flex {
   display: flex;
   align-items: center;
@@ -74,6 +73,54 @@ nav {
   font-size: 1.3rem;
   font-family: "Inter", sans-serif;
 }
+
+/* drop down-logout_tab */
+
+#myDropdown{
+height: 5rem;
+width: 3rem;
+right: 1rem;
+top: 6.5rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.option{
+display: flex;
+justify-content: space-evenly;
+cursor: pointer;
+}
+
+.option_1:hover{
+  background-color: rgb(197, 195, 195);
+
+}
+
+.option_2:hover{
+  background-color: rgb(197, 195, 195);
+ 
+}
+
+.dropdown-content span {
+  color: black;
+  padding: 5px 3px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
 
 /* home page */
 .part_1 {
@@ -193,6 +240,11 @@ nav {
   display: flex;
   justify-content: space-evenly;
   margin-top: 3rem;
+
+}
+
+.men_categories, .women_categories, .kids_categories{
+cursor: pointer;
 }
 
 .categories_div img {
@@ -227,7 +279,7 @@ nav {
   margin-top: 3rem;
 }
 
-/* ABOUT US */
+/* ABOUT US  PAGE*/
 
 .about_us_page {
   height: 35rem;
@@ -358,7 +410,6 @@ nav {
   background-color: #05152c;
   height: 35rem;
   width: 100%;
-  /* justify-content: space-between; */
 }
 
 .cta_page h2 {
@@ -400,6 +451,7 @@ footer {
 
 .social_handles {
   justify-content: space-evenly;
+  cursor: pointer;
 }
 
 .services {
@@ -409,10 +461,11 @@ footer {
   margin-top: 5rem;
 }
 
-.services a {
+.services h4 {
   display: block;
   font-weight: 300;
   padding-top: 1.5rem;
+  cursor: pointer;
 }
 
 .contact_us_footer {

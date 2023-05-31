@@ -4,8 +4,8 @@ var { engine } = require("express-handlebars");
 var app = express();
 let router = require("./route/route");
 
-let http = require('http').createServer(app);
-let io = require('socket.io')(http);
+let http = require("http").createServer(app);
+let io = require("socket.io")(http);
 
 var port = process.env.port || 3000;
 
@@ -19,19 +19,18 @@ app.use(express.json());
 
 app.use("/", router);
 http.listen(port, () => {
-    console.log("App listening to: " + port);
+  console.log("App listening to: " + port);
 });
 
 
-io.on('connection', (socket) => {
-    console.log('a user connected');
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-    });
+io.on("connection", (socket) => {
+  console.log("a user connected");
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
 
-    // use setTimeOut to make the banner visible after 10 seconds waiting time
-    setTimeout(() => {
-        socket.emit('showBanner', true);
-    }, 10000);
-
+  // use setTimeOut to make the banner visible after 10 seconds waiting time
+  setTimeout(() => {
+    socket.emit("showBanner", true);
+  }, 10000);
 });
