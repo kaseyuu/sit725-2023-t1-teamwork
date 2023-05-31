@@ -2,6 +2,7 @@ let client = require("../dbConnection");
 let collection = client.db("test").collection("items");
 let searchPromptsCollection = client.db("test").collection("searchPrompts");
 let photoWallCollection = client.db("test").collection("photo_wall");
+let userCollection = client.db("test").collection("users")
 
 const getAllClothes = async () => {
     const items = await collection.find().toArray();
@@ -63,6 +64,27 @@ const getAllPhotoWallImages = async () => {
     return items;
 };
 
+const createUser = async (user) => {
+    // Check if the username already exists
+    const existingUser = await userCollection.findOne({ username: user.username });
+    if (existingUser) {
+        return { error: "Username already exists" };
+    }
+    await userCollection.insertOne(user);
+    let response = { email: user.email, username: user.username, fullName: user.fullName }
+    return response;
+}
+
+const loginUser = async (user) => {
+    // Check if the username already exists
+    const existingUser = await userCollection.findOne({ username: user.username, password: user.password });
+    if (existingUser) {
+        let response = { email: existingUser.email, username: existingUser.username, fullName: existingUser.fullName }
+        return response;
+    }
+    return { error: "Please provide a valid username or password" };
+}
+
 module.exports = {
     getAllClothes,
     searchClothes,
@@ -70,4 +92,6 @@ module.exports = {
     deleteSearchPrompts,
     searchSearchPrompts,
     getAllPhotoWallImages,
+    createUser,
+    loginUser,
 };

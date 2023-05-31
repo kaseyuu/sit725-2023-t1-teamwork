@@ -20,12 +20,6 @@ app.set("views", "./views");
 
 app.use(express.json());
 
-app.use("/", router);
-http.listen(port, () => {
-  console.log("App listening to: " + port);
-});
-
-
 io.on("connection", (socket) => {
   console.log("a user connected");
   socket.on("disconnect", () => {
@@ -39,10 +33,6 @@ io.on("connection", (socket) => {
 });
 
 
-//User Login and Sign Up
-require("./dbConnection");
-const path = require("path");
-const Register = require("./model/register")
 app.use(express.urlencoded({ extended: false }));
 
 const static_path = path.join(__dirname + "/public")
@@ -110,3 +100,7 @@ app.post("/login", async (req, res) => {
     res.status(400).send(error);
   }
 })
+app.use("/", router);
+http.listen(port, () => {
+  console.log("App listening to: " + port);
+});
