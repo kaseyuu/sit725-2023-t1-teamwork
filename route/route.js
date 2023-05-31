@@ -1,4 +1,4 @@
-// Routes are the files that are responsible to serve the endpoints of our application to the user. 
+// Routes are the files that are responsible to serve the endpoints of our application to the user.
 var express = require("express");
 let router = express.Router();
 let controller = require("../controller/controller");
@@ -9,15 +9,15 @@ const caseInsensitiveSearch = (str) => { return new RegExp((str && `^${str}$`), 
 const blurSearch = (str) => { return new RegExp(str, "i") }
 
 router.get("/clothes", async (req, res) => {
-    // get query parameters from URL
-    const category = req.query.category;
-    const subcategory = req.query.subcategory;
-    const condition = req.query.condition;
-    const minPrice = req.query.minPrice;
-    const maxPrice = req.query.maxPrice;
-    const size = req.query.size;
-    const location = req.query.location;
-    const searchText = req.query.searchText;
+  // get query parameters from URL
+  const category = req.query.category;
+  const subcategory = req.query.subcategory;
+  const condition = req.query.condition;
+  const minPrice = req.query.minPrice;
+  const maxPrice = req.query.maxPrice;
+  const size = req.query.size;
+  const location = req.query.location;
+  const searchText = req.query.searchText;
 
     const priceFilter = {
         $gte: minPrice ? parseInt(minPrice) : 0,
@@ -47,14 +47,20 @@ router.get("/clothes", async (req, res) => {
 
 // Define the endpoint search-prompts so it can query the database
 router.get("/search-prompts", async (req, res) => {
-    const { query } = req.query;
+  const { query } = req.query;
 
-    // TODO: Get results from DB dynamically
-    var src = [];
-    for (let i = 0; i < 50; i++) {
-        src.push({ title: "Option " + i, id: "opt" + i, data: { key: i } });
-    }
-    res.send(src);
+  // TODO: Get results from DB dynamically
+  var src = [];
+  for (let i = 0; i < 50; i++) {
+      src.push({ title: "Option " + i, id: "opt" + i, data: { key: i } });
+  }
+  res.send(src);
+});
+
+// End point to get photo wall pages
+router.get("/api/photo-wall", async (req, res) => {
+  const allPhotos = await controller.getAllPhotoWallImages();
+  res.json(allPhotos.map((item) => item.image));
 });
 
 module.exports = router;

@@ -10,4 +10,9 @@ const searchClothes = async (searchQuery) => {
     return allClothes;
 };
 
-module.exports = { getAllClothes, searchClothes };
+const getAllPhotoWallImages = async (req, res) => {
+    const allImages = await model.getAllPhotoWallImages();
+    return allImages;
+};
+
+module.exports = { getAllClothes, searchClothes, getAllPhotoWallImages};
