@@ -83,8 +83,8 @@ priceRangeApplyBtn.addEventListener("click", function (event) {
 // 2.2.2 URL to UI
 const minPriceInput = document.getElementById("minPrice");
 const maxPriceInput = document.getElementById("maxPrice");
-minPriceInput.placeholder = selectedFilters.minPrice;
-maxPriceInput.placeholder = selectedFilters.maxPrice;
+minPriceInput.value = selectedFilters.minPrice;
+maxPriceInput.value = selectedFilters.maxPrice;
 
 
 // 3. Inline search: using the Autocomplete library to initialize an autocomplete feature for the search box 
