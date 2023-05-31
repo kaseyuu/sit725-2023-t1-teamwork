@@ -36,7 +36,7 @@ io.on("connection", (socket) => {
 });
 
 
-//
+//User Login and Sign Up
 require("./dbConnection");
 const path = require("path");
 const Register = require("./model/register")
