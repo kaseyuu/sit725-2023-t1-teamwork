@@ -2,6 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Log in / Sign up | ReWearit </title>
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
@@ -9,13 +10,15 @@
 
 </head>
 <body>
-
-<div class="logo"> 
-  <a class="brand-logo"><img class="user-image-size" src="./images/rewearit_logo_transparent.png" /></a>
-</div>
-
+  
+  <div class="logo"> 
+    <a class="brand-logo"><img class="user-image-size" src="images/rewearit_logo.png" /></a>
+  </div>
 <div class="container">
-  <div class="box"> </div>
+
+  <div class="box">
+   
+  </div>
   <div class="container-forms">
     <div class="container-info">
       <div class="info-item">
@@ -46,36 +49,41 @@
     <div class="container-form">
       <div class="form-item log-in">
         <div class="table">
-          <form class="table-cell">
+          <form action="/login" method="post" class="table-cell" name = "loginForm" onsubmit="return validateForm()">
             <input name="Username" placeholder="Username" type="text" />
             <input name="Password" placeholder="Password" type="Password" />
             <div id="forgot-password">
             <a href="#" >Forgot Password?</a>
-            </div>
-            <div class="btn">
-              Log in
-            </div>
+            </div><br>
+			<button type="submit">Log in</button>
+            <!-- <div class="btn">
+				<button type="submit">Log in</button>
+            </div> -->
           </form>
         </div>
       </div>
       <div class="form-item sign-up">
         <div class="table">
-          <form class="table-cell">
+          <form action="/register" method="post" class="table-cell" name = "regForm" onsubmit="return registerForm()">
             <input name="email" placeholder="Email" type="text" />
             <input name="fullName" placeholder="Full Name" type="text" />
             <input name="Username" placeholder="Username" type="text" />
             <input name="Password" placeholder="Password" type="Password" />
-            <div class="btn">
-              Sign up
-            </div>
+            <input name="confPassword" placeholder="Confirm Password" type="Password" />
+			<button type="submit" >Sign up</button>
+            <!-- <div class="btn">
+				<button type="submit">Sign up</button>
+            </div> -->
           </form>
+
+    
         </div>
       </div>
     </div>
   </div>
 </div>
 <!-- partial -->
-  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="./js/script.js"></script>
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="./Js/script.js"></script>
 
 </body>
 </html>
