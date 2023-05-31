@@ -36,4 +36,3 @@ module.exports = {
     getAllPhotoWallImages,
 };
 
-module.exports = { getAllClothes, searchClothes, getAllPhotoWallImages};
