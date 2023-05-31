@@ -1,6 +1,5 @@
 @charset "UTF-8";
-
-/* LOGIN PAGE CSS */
+/* @import url(https://fonts.googleapis.com/css?family=Montserrat:500&display=swap); */
 body {
   position: absolute;
   left: 0;
@@ -26,7 +25,7 @@ body {
 .brand-logo img {
   height: 220px;
   width: auto;
-  margin-left: 60%;
+  margin-left: 50%;
   margin-right: auto;
   margin-top: 15%;
 }
@@ -59,7 +58,6 @@ body {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-
 .container .box {
   position: absolute;
   left: 0;
@@ -68,9 +66,7 @@ body {
   height: 100%;
   overflow: hidden;
 }
-
-.container .box:before,
-.container .box:after {
+.container .box:before, .container .box:after {
   content: " ";
   position: absolute;
   left: 152px;
@@ -84,7 +80,6 @@ body {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-
 .container .box:after {
   background-color: #505050;
   top: -10px;
@@ -92,11 +87,9 @@ body {
   width: 320px;
   height: 180px;
 }
-
 .container .container-forms {
   position: relative;
 }
-
 .container .btn {
   cursor: pointer;
   text-align: center;
@@ -112,17 +105,13 @@ body {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-
 .container .btn:hover {
   opacity: 0.7;
 }
-
-.container .btn,
-.container input {
+.container .btn, .container input {
   padding: 10px 15px;
   font-family: "Montserrat";
 }
-
 .container input {
   margin: 0 auto 15px;
   display: block;
@@ -132,12 +121,10 @@ body {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-
 .container .container-forms .container-info {
   text-align: left;
   font-size: 0;
 }
-
 .container .container-forms .container-info .info-item {
   text-align: center;
   font-size: 16px;
@@ -152,26 +139,21 @@ body {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-
 .container .container-forms .container-info .info-item p {
   font-size: 20px;
   margin: 20px;
 }
-
 .container .container-forms .container-info .info-item .btn {
   background-color: #fff;
   border: 1px solid #fff;
 }
-
 .container .container-forms .container-info .info-item .table-cell {
   padding-right: 35px;
 }
-
 .container .container-forms .container-info .info-item:nth-child(2) .table-cell {
   padding-left: 35px;
   padding-right: 0;
 }
-
 .container .container-form {
   overflow: hidden;
   position: absolute;
@@ -186,7 +168,6 @@ body {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-
 .container .container-form:before {
   content: "✔";
   position: absolute;
@@ -200,11 +181,20 @@ body {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-
 .container .container-form .btn {
   position: relative;
   box-shadow: 0 0 10px 1px #000000;
   margin-top: 30px;
+}
+
+.table-cell button {
+    text-decoration: none;
+    background: transparent;
+    color: #000;
+    font-family:"Montserrat";
+    font-weight: bold;
+    padding: 10px 15px;
+    margin-left: 35%;
 }
 
 .container .form-item {
@@ -219,54 +209,45 @@ body {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-
 .container .form-item.sign-up {
   position: absolute;
   left: -100%;
   opacity: 0;
 }
-
 .container.log-in .box:before {
   position: absolute;
   left: 180px;
   top: 62px;
   height: 265px;
 }
-
 .container.log-in .box:after {
   top: 22px;
   left: 192px;
   width: 324px;
   height: 220px;
 }
-
 .container.log-in .container-form {
   left: 265px;
 }
-
 .container.log-in .container-form .form-item.sign-up {
   left: 0;
   opacity: 1;
 }
-
 .container.log-in .container-form .form-item.log-in {
   left: -100%;
   opacity: 0;
 }
-
 .container.active {
   width: 260px;
   height: 140px;
   margin-top: -70px;
 }
-
-.container.active .container-form {
+ .container.active .container-form {
   left: 30px;
   width: 200px;
   height: 200px;
-}
-
-.container.active .container-form:before {
+} 
+ .container.active .container-form:before {
   content: "✔";
   position: absolute;
   left: 51px;
@@ -274,37 +255,36 @@ body {
   color: #000000;
   font-size: 130px;
   opacity: 1;
-}
-
-.container.active input,
-.container.active .btn,
-.container.active .info-item {
+} 
+.container.active input, .container.active .btn, .container.active .info-item {
   display: none;
   opacity: 0;
   padding: 0px;
   margin: 0 auto;
   height: 0;
 }
-
 .container.active .form-item {
   height: 100%;
 }
-
 .container.active .container-forms .container-info .info-item {
   height: 0%;
   opacity: 0;
 }
 
-#forgot-password {
+#forgot-password{
 
   font-size: 11px;
   font-style: italic;
   text-align: right;
   margin-right: 30px;
-
+  
 }
 
 #forgot-password a {
   text-decoration: none;
   color: #000000;
+}
+
+.hidden {
+  display: none;
 }
