@@ -1,0 +1,16 @@
+#ac-menu-1 {
+    top: 100px;
+    min-width: 108rem;
+}
+
+.filter {
+    width: 100%;
+}
+
+.filter>button {
+    width: 100%;
+}
+
+#prompt {
+    display: none;
+}
