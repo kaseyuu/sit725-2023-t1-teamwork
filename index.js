@@ -56,6 +56,8 @@ app.get("/login", (req, res) => {
   res.render("index");
 })
 
+
+
 //create a new user to DB
 app.post("/register",async (req, res) => {
   try {
@@ -76,7 +78,8 @@ app.post("/register",async (req, res) => {
           res.status(200).sendFile(__dirname + "/public/login.html");
       
       } else {
-          res.send("Password are not matching")
+        res.send("Password are not matching")
+        // res.send({ statusCode: 200, data: result, message: 'Passwords are not matching' })
       }
 
   } catch (error) {
@@ -97,6 +100,7 @@ app.post("/login", async (req, res) => {
           res.status(200).sendFile(__dirname + "/public/index.html");
       } else {
           res.send("Username or Password is incorrect");
+          // res.json({ statusCode: 200, data: result, message: 'Username or Password is incorrect' });
       }
       
   } catch (error) {

@@ -9,6 +9,7 @@
 
 </head>
 <body>
+  
 
 <div class="logo"> 
   <a class="brand-logo"><img class="user-image-size" src="images/rewearit_logo.png" /></a>
@@ -46,7 +47,7 @@
     <div class="container-form">
       <div class="form-item log-in">
         <div class="table">
-          <form action="/login" method="post" class="table-cell">
+          <form action="/login" method="post" class="table-cell" name = "loginForm" onsubmit="return validateForm()">
             <input name="Username" placeholder="Username" type="text" />
             <input name="Password" placeholder="Password" type="Password" />
             <div id="forgot-password">
@@ -61,7 +62,7 @@
       </div>
       <div class="form-item sign-up">
         <div class="table">
-          <form action="/register" method="post" class="table-cell">
+          <form action="/register" method="post" class="table-cell" name = "regForm" onsubmit="return registerForm()">
             <input name="email" placeholder="Email" type="text" />
             <input name="fullName" placeholder="Full Name" type="text" />
             <input name="Username" placeholder="Username" type="text" />
