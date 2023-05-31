@@ -10,4 +10,22 @@ const searchClothes = async (searchQuery) => {
     return allClothes;
 };
 
-module.exports = { getAllClothes, searchClothes };
+const addSearchPrompts = async (searchPrompts) => {
+    return await model.addSearchPrompts(searchPrompts);
+};
+
+const deleteSearchPrompts = async (searchPrompts) => {
+    return await model.deleteSearchPrompts(searchPrompts);
+};
+
+const searchSearchPrompts = async (searchString) => {
+    return await model.searchSearchPrompts(searchString);
+};
+
+module.exports = {
+    getAllClothes,
+    searchClothes,
+    addSearchPrompts,
+    deleteSearchPrompts,
+    searchSearchPrompts,
+};

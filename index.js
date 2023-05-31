@@ -15,12 +15,13 @@ app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 
+app.use(express.json());
+
 app.use("/", router);
 http.listen(port, () => {
     console.log("App listening to: " + port);
 });
 
-console.log("Hello World");
 
 io.on('connection', (socket) => {
     console.log('a user connected');
