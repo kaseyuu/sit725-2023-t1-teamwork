@@ -3,8 +3,10 @@ var express = require("express");
 let router = express.Router();
 let controller = require("../controller/controller");
 
-// Enabling mangodb to do case-insensitive search
-const caseInsensitiveSearch = (str) => { return new RegExp(str, "i") }
+// Enabling mangodb to do case-insensitive and wholeword search
+const caseInsensitiveSearch = (str) => { return new RegExp((str && `^${str}$`), "i") }
+// Enabling blur search
+const blurSearch = (str) => { return new RegExp(str, "i") }
 
 router.get("/clothes", async (req, res) => {
     // get query parameters from URL
@@ -17,28 +19,11 @@ router.get("/clothes", async (req, res) => {
     const location = req.query.location;
     const searchText = req.query.searchText;
 
-    const items = [
-        {
-            imageUrl: "./images/dress1.png",
-            name: "mini dress in monochrome print",
-            price: 1111111111110,
-        },
-        {
-            imageUrl: "./images/dress2.png",
-            name: "mini dress in monochrome print",
-            price: 2222222220,
-        },
-        {
-            imageUrl: "./images/dress1.png",
-            name: "mini dress in monochrome print",
-            price: 3333333330,
-        },
-        {
-            imageUrl: "./images/dress1.png",
-            name: "mini dress in monochrome print",
-            price: 444444440,
-        },
-    ];
+    const priceFilter = {
+        $gte: minPrice ? parseInt(minPrice) : 0,
+        $lte: maxPrice ? parseInt(maxPrice) : 100000000,
+    };
+
     // Get items from DB dynamically and apply case insensitive search to replace undefined filters with empty strings
     const query = {
         // Exact Search with filters
@@ -47,20 +32,23 @@ router.get("/clothes", async (req, res) => {
         condition: caseInsensitiveSearch(condition),
         size: caseInsensitiveSearch(size),
         location: caseInsensitiveSearch(location),
+
         // TODO: Range search with price range
+        price: priceFilter,
 
         // Blur Search with the top search box.
-        name: caseInsensitiveSearch(searchText)
+        name: blurSearch(searchText),
     }
 
     const allClothes = await controller.searchClothes(query);
+
     res.render("clothes", { items: allClothes });
 });
 
 // Define the endpoint search-prompts so it can query the database
 router.get("/search-prompts", async (req, res) => {
     const { query } = req.query;
-    console.log("🚀 ~ file: route.js:54 ~ router.get ~ query:", query);
+
     // TODO: Get results from DB dynamically
     var src = [];
     for (let i = 0; i < 50; i++) {
