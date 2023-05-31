@@ -45,8 +45,33 @@ document
   .getElementById("button")
   .addEventListener("click", redirectSearchPage, true);
 function redirectSearchPage() {
-  location.href = "http://127.0.0.1:3000/clothes.html";
+  location.href = "http://127.0.0.1:3000/clothes";
 }
+
+// redirecting to mens section
+document
+  .getElementById("men_categories")
+  .addEventListener("click", redirectMenPage, true);
+function redirectMenPage() {
+  location.href = "http://127.0.0.1:3000/clothes?category=Men";
+}
+
+// redirecting to womens section
+document
+  .getElementById("women_categories")
+  .addEventListener("click", redirectWomenPage, true);
+function redirectWomenPage() {
+  location.href = "http://127.0.0.1:3000/clothes?category=Women";
+}
+
+// redirecting to kids section
+document
+  .getElementById("kids_categories")
+  .addEventListener("click", redirectKidsPage, true);
+function redirectKidsPage() {
+  location.href = "http://127.0.0.1:3000/clothes?category=Kids";
+}
+
 
 // logout-dropdown menu
 document
