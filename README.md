@@ -23,7 +23,7 @@ Handlebars template engine is used to dynamically populate clothes items from Mo
 # Inline search function
 Using the Autocomplete library to initialize an autocomplete feature on the search box input field. When users type in letters in input field, they can query the database through newly created endpoint called search-prompt.
 
-The inline search box contains popular strings, which utilized CRUD. On the backend, endpoints for adding/deleting/researching popular strings are created, which enabled administrators to send HTTP requests through POSTMAN to add or delete popular strings. Users can type letters to search for popular strings such as "tshirt". 
+The inline search box contains popular strings, which utilized CRUD. On the backend, endpoints for adding/deleting/searching popular strings are created, which enabled administrators to send HTTP requests through POSTMAN to add or delete popular strings. Users can type letters to search for popular strings such as "tshirt". 
 # Banner function
 If the user didn't do anything on this page for 10 seconds, the banner will show. This function is realized through Socket.
 # MVC Structure
