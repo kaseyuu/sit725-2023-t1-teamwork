@@ -25,9 +25,15 @@ Using the Autocomplete library to initialize an autocomplete feature on the sear
 
 The inline search box contains popular strings, which utilized CRUD. On the backend, endpoints for adding/deleting/searching popular strings are created, which enabled administrators to send HTTP requests through POSTMAN to add or delete popular strings. Users can type letters to search for popular strings such as "tshirt". 
 # Banner function
-If the user didn't do anything on this page for 10 seconds, the banner will show. This function is realized through Socket.
+If the user didn't do anything on this page for 10 seconds, the banner will show. This function is realized through Socket. The added banner enables real time communication from the server to the client.
 # MVC Structure
 Following the MVC model,  I have separated javascript files for model, controller, route and view.
+
+The MVC structure helps to seperate different aspects into distinct components. The Model represents the data and business logic, the View handles the presentation and user interface, and the Controller manages the interaction between the Model and View. This separation makes it easier to understand, modify, and maintain the codebase, as changes in one component have minimal impact on the others.
+# Caching layer
+With the addition of caching, the code first checks if the requested data is available in the cache. If it is found (cache hit), the cached data is returned immediately, avoiding the need to perform a database query. However, if the data is not found in the cache (cache miss), the code proceeds to query the database, save the retrieved data in the cache, and then return the data.
+
+This caching mechanism helps to improve performance by reducing the number of database queries and retrieving data faster from the cache when available.
 
 
 ## Mansheen's part

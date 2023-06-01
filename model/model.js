@@ -3,6 +3,7 @@ let collection = client.db("test").collection("items");
 let searchPromptsCollection = client.db("test").collection("searchPrompts");
 let photoWallCollection = client.db("test").collection("photo_wall");
 let userCollection = client.db("test").collection("users")
+const { getCache, saveCache } = require("./cache");
 
 const searchClothes = async (searchQuery) => {
     const items = await collection.find(searchQuery).toArray();
@@ -12,6 +13,7 @@ const searchClothes = async (searchQuery) => {
 const addSearchPrompts = async (searchPrompts) => {
     try {
         const bulkOps = searchPrompts.map((searchPrompt) => ({
+            // add prompts and prevent duplicates
             updateOne: {
                 filter: { value: searchPrompt },
                 update: { $setOnInsert: { value: searchPrompt } },
@@ -45,9 +47,22 @@ const deleteSearchPrompts = async (searchPrompts) => {
 
 const searchSearchPrompts = async (searchString) => {
     try {
+        // Retrieve data from cache
+        const searchPromptsFromCache = getCache(searchString);
+        if (searchPromptsFromCache) {
+            console.log("Cache hit");
+            return searchPromptsFromCache;
+        }
+
+        // If cache is not hit, retrieve data through search function
+        console.log("Cache missed");
         const regex = new RegExp(searchString, "i");
         const query = { value: regex };
         const result = await searchPromptsCollection.find(query).toArray();
+
+        // saved retrieved data in the cache
+        saveCache(searchString, result);
+
         return result;
     } catch (error) {
         console.log("Error searching strings:", error);
