@@ -31,7 +31,7 @@ const searchClothes = async (req, res) => {
             size: caseInsensitiveSearch(size),
             location: caseInsensitiveSearch(location),
 
-            // TODO: Range search with price range
+            // Range search with price range
             price: priceFilter,
 
             // Blur Search with the top search box.
