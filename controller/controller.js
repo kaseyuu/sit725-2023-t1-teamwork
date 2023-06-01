@@ -53,7 +53,7 @@ const addSearchPrompts = async (req, res) => {
         const { searchPrompts } = req.body;
         console.log(req.body)
         const count = await model.addSearchPrompts(searchPrompts);
-        res.send(count.toString());
+        res.send(count.toString() + "added");
     } catch (error) {
         res.json({ statusCode: 400, message: err });
     }
@@ -63,7 +63,7 @@ const deleteSearchPrompts = async (req, res) => {
     try {
         const { searchPrompts } = req.body;
         const count = await model.deleteSearchPrompts(searchPrompts);
-        res.send(count.toString());
+        res.send(count.toString() + " deleted");
     } catch (error) {
         res.json({ statusCode: 400, message: err });
     }
@@ -71,8 +71,10 @@ const deleteSearchPrompts = async (req, res) => {
 
 const searchSearchPrompts = async (req, res) => {
     try {
-        const { query } = req.query;
-
+        const query = req.query.query;
+        if (!query) {
+            return res.send([]);
+        }
         //Get results from DB dynamically
         const searchPrompts = await model.searchSearchPrompts(query);
         const normalisedPrompts = searchPrompts.map((s, i) => {

@@ -10,7 +10,7 @@ let io = require("socket.io")(http);
 var port = process.env.port || 3000;
 
 app.use(express.static(__dirname + "/public"));
-// Connect tp uploaded clothes' photos
+// Connect to uploaded clothes' photos
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
 // Add handlebars engine to dynamically inject clothes
