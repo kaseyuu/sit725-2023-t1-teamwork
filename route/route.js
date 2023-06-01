@@ -24,7 +24,7 @@ router.get("/clothes", async (req, res) => {
         $lte: maxPrice ? parseInt(maxPrice) : 100000000,
     };
 
-    // Get items from DB dynamically and apply case insensitive search to replace undefined filters with empty strings
+    // Get items from DB dynamically and apply case-insensitive search to replace undefined filters with empty strings
     const query = {
         // Exact Search with filters
         category: caseInsensitiveSearch(category),
@@ -86,7 +86,7 @@ router.post("/api/register", async (req, res) => {
     const response = await controller.createUser(req, res);
     if (response.error) {
         res.status(400).json(response); // Return a 400 status code with the error message
-    }else {
+    } else {
         res.json(response)
     }
 })
@@ -96,7 +96,7 @@ router.post("/api/login", async (req, res) => {
     const response = await controller.loginUser(req, res);
     if (response.error) {
         res.status(400).json(response); // Return a 400 status code with the error message
-    }else {
+    } else {
         res.json(response)
     }
 })
