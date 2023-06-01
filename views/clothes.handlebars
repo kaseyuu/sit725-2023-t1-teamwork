@@ -20,6 +20,7 @@
         <!-- cards to display searched results and filtered results -->
         <div class="col col-10 ps-5 pe-5">
             <div class="row row-cols-4 g-4">
+                {{error}}
                 {{!-- Used to dynamically render cloth item --}}
                 {{#each items}}
                 {{> clothItem image=image name=name price=price }}

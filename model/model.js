@@ -4,11 +4,6 @@ let searchPromptsCollection = client.db("test").collection("searchPrompts");
 let photoWallCollection = client.db("test").collection("photo_wall");
 let userCollection = client.db("test").collection("users")
 
-const getAllClothes = async () => {
-    const items = await collection.find().toArray();
-    return items;
-};
-
 const searchClothes = async (searchQuery) => {
     const items = await collection.find(searchQuery).toArray();
     return items;
@@ -86,7 +81,6 @@ const loginUser = async (user) => {
 }
 
 module.exports = {
-    getAllClothes,
     searchClothes,
     addSearchPrompts,
     deleteSearchPrompts,
