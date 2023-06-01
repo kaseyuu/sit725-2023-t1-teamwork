@@ -14,6 +14,31 @@ Note: Make sure you have Node.js and npm (Node Package Manager) installed on you
 
 
 ## Kasey's part
+# My Contributions
+- controller/
+  - controller.js (searchClothes, addSearchPrompts, deleteSearchPrompts, searchSearchPrompts)
+- model/
+  - cache.js (all)
+  - model.js (searchClothes, addSearchPrompts, deleteSearchPrompts, searchSearchPrompts)
+- public/
+  - js/
+    - clothes.js (all)
+- route/
+  - route.js (endpoints for searchClothes, addSearchPrompts, deleteSearchPrompts, searchSearchPrompts)
+- test/
+  - test.js (all)
+- views/ 
+  - layouts/
+    - main.handlebars (all)
+  - partials/
+    - clothItem.handlebars (all)
+    - filters.handlebars (all)
+  - clothes.handlebars (all)
+- dbConnection.js (Created a MongoClient)
+- index.js (handlebars engine, socket setup)
+
+To arrive search and filter page, please select the magnifier icon from the home page, or select 'Explore' button from the home page. 
+
 # Search box and filters function
 Search box function and filters function were implemented through three steps: UI to URL, URL to UI, and URL to backend. 
 
@@ -23,7 +48,9 @@ Handlebars template engine is used to dynamically populate clothes items from Mo
 # Inline search function
 Using the Autocomplete library to initialize an autocomplete feature on the search box input field. When users type in letters in input field, they can query the database through newly created endpoint called search-prompt.
 
-The inline search box contains popular strings, which utilized CRUD. On the backend, endpoints for adding/deleting/searching popular strings are created, which enabled administrators to send HTTP requests through POSTMAN to add or delete popular strings. Users can type letters to search for popular strings such as "tshirt". 
+The inline search box contains popular strings, which utilized CRUD. On the backend, endpoints for adding/deleting/searching popular strings are created, which enabled administrators to send HTTP requests through POSTMAN to add or delete popular strings. 
+
+For example, to add popular string "jacket", users can send a post HTTP request to "http://localhost:3000/search-prompts/add" with request body {"searchPrompts": ["jacket"]}. To delete popular string "jacket", users can send a post HTTP request to "http://localhost:3000/search-prompts/delete" with request body {"searchPrompts": ["jacket"]}.
 # Banner function
 If the user didn't do anything on this page for 10 seconds, the banner will show. This function is realized through Socket. The added banner enables real time communication from the server to the client.
 # MVC Structure
@@ -34,6 +61,22 @@ The MVC structure helps to seperate different aspects into distinct components. 
 With the addition of caching, the code first checks if the requested data is available in the cache. If it is found (cache hit), the cached data is returned immediately, avoiding the need to perform a database query. However, if the data is not found in the cache (cache miss), the code proceeds to query the database, save the retrieved data in the cache, and then return the data.
 
 This caching mechanism helps to improve performance by reducing the number of database queries and retrieving data faster from the cache when available.
+# testing
+Unit testings have been conducted including all backend functions, including:
+- "/clothes" GET endpoint for rendering clothes page
+    - test making request
+    - test returning the filters
+    - test returning the clothes
+    - test two filtering function
+- "/search-prompts" GET endpoint for searching function
+  - test making request
+  - test returning empty array
+  - test search function
+- "/search-prompts/add" POST endpoint for adding popular strings for inline search
+- "/search-prompts/delete" POST endpoint for deleting popular strings for inline search
+searching keywords, using filters, adding/deleting search prompts (inline search's GET endpoint). 
+
+To run testing, open a new terminal and run: npm test
 
 
 ## Mansheen's part
